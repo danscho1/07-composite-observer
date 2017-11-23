@@ -1,9 +1,13 @@
 package de.fhro.inf.prg3.a07.test;
 
+import android.text.format.DateUtils;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -47,12 +51,7 @@ public class OpenMensaAPITests {
 
     @Test
     public void testGetMeals() throws IOException {
-        // TODO prepare call
-
-        // TODO execute the call synchronously
-
-        // TODO unwrap the body
-        List<Meal> meals = null;
+        List<Meal> meals =  openMensaAPI.getMeals("2017-11-22").execute().body();
 
         assertNotNull(meals);
         assertNotEquals(0, meals.size());
